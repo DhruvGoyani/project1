@@ -10,6 +10,8 @@ import { NavLink } from 'react-router-dom';
 import Doctors from './Container/Doctors/Doctors';
 import About from './Container/About/About';
 import Contact from './Container/Contact/Contact';
+import Appointment from './Container/Appointment/Appointment';
+import Auth from './Container/Auth/Auth';
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
       <Route exact path={"/doctors"} component={Doctors} />
       <Route exact path={"/about"} component={About} />
       <Route exact path={"/contact"} component={Contact} />
+      <Route exact path={"/appointment"} component={Appointment} />
+      <Route exact path={"/auth"} component={Auth} />
      </Switch>
     <Footer />                
     </>
