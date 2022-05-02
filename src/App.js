@@ -12,6 +12,7 @@ import About from './Container/About/About';
 import Contact from './Container/Contact/Contact';
 import Appointment from './Container/Appointment/Appointment';
 import Auth from './Container/Auth/Auth';
+import Counter from './Container/Counter/Counter';
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
       <Route exact path={"/appointment"} component={Appointment} />
       <Route exact path={"/auth"} component={Auth} />
      </Switch>
-    <Footer />                
+    <Footer />
+    <Counter />                
     </>
   );  
 }
