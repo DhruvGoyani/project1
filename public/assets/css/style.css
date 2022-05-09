@@ -559,7 +559,6 @@ section {
 }
 
 .section-title {
-  text-align: center;
   padding-bottom: 30px;
   margin-top: 10px;
 }
@@ -1795,6 +1794,16 @@ section {
 }
 
 .centeerr {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: #2c4964;
+}
+
+.centerr{
   text-align: center;
   font-size: 32px;
   font-weight: bold;

@@ -13,6 +13,8 @@ import Contact from './Container/Contact/Contact';
 import Appointment from './Container/Appointment/Appointment';
 import Auth from './Container/Auth/Auth';
 import Counter from './Container/Counter/Counter';
+import Medicines from './Container/Medicines/Medicines';
+import Auth1 from './Container/Auth/Auth1';
 
 
 function App() {
@@ -28,7 +30,9 @@ function App() {
       <Route exact path={"/about"} component={About} />
       <Route exact path={"/contact"} component={Contact} />
       <Route exact path={"/appointment"} component={Appointment} />
-      <Route exact path={"/auth"} component={Auth} />
+      {/* <Route exact path={"/auth"} component={Auth} /> */}
+      <Route exact path={"/medicines"} component={Medicines} />
+      <Route exact path={"/auth1"} component={Auth1} />
      </Switch>
     <Footer />
     <Counter />                

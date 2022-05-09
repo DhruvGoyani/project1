@@ -33,6 +33,9 @@ function Header(props) {
                             </li>
                             <li>
                                 <NavLink to={"/department"} className="nav-link scrollto">Department</NavLink>
+                                </li>
+                                <li>
+                                <NavLink to={"/medicines"} className="nav-link scrollto">Medicines</NavLink>
                                 </li> 
                             <li>
                                 <NavLink to={"/doctors"} className="nav-link scrollto" >Doctors</NavLink>
@@ -48,7 +51,7 @@ function Header(props) {
                     </nav>
                     <NavLink href="./pages/appointment.html" to={"/appointment"} className="appointment-btn scrollto"><span className="d-none d-md-inline">Make an</span>
                         Appointment</NavLink>
-                    <NavLink to={"/auth"} href="#" className="appointment-btn scrollto">
+                    <NavLink to={"/auth1"} href="#" className="appointment-btn scrollto">
                         <span className="d-none d-md-inline">Login/ Signup</span>
                     </NavLink>
                 </div>
