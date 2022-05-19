@@ -11,10 +11,10 @@ import Doctors from './Container/Doctors/Doctors';
 import About from './Container/About/About';
 import Contact from './Container/Contact/Contact';
 import Appointment from './Container/Appointment/Appointment';
-import Auth from './Container/Auth/Auth';
 import Counter from './Container/Counter/Counter';
 import Medicines from './Container/Medicines/Medicines';
 import Auth1 from './Container/Auth/Auth1';
+import Form from './Container/Auth/Form';
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
       {/* <Route exact path={"/auth"} component={Auth} /> */}
       <Route exact path={"/medicines"} component={Medicines} />
       <Route exact path={"/auth1"} component={Auth1} />
+      <Route exact path={"/form"} component={Form} />
      </Switch>
     <Footer />
     <Counter />                

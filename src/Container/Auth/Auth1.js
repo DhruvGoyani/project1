@@ -14,9 +14,21 @@ function Auth1(props) {
     const handleSignup = (values) => {
         alert(JSON.stringify(values, null, 2));
 
+        let data = JSON.parse(localStorage.getItem("users"))
+        // data.push(values)
+        // console.log(data);
+        // localStorage.setItem("users",JSON.stringify([values]))
+
+        if (data === null) {
+            localStorage.setItem("users",JSON.stringify([values]))
+        } else {
+            data.push(values)
+            localStorage.setItem("users",JSON.stringify(data))
+        }
+
     }
     const handlepassword = (values) => {
-        alert(JSON.stringify(values.email));   
+        alert(JSON.stringify(values.email));
     }
 
     let login_set = {
@@ -68,13 +80,13 @@ function Auth1(props) {
                 handleSignup(values)
             } else if (reset) {
                 handlepassword(values)
-            } 
+            }
             resetForm();
         }
     })
 
 
-        console.log(formik.errors);
+    console.log(formik.errors);
 
     return (
         <section id="appointment" className="appointment d-flex">
@@ -105,7 +117,7 @@ function Auth1(props) {
                                                 onBlur={formik.handleBlur}
 
                                             />
-                                            
+
                                             {
                                                 formik.errors.name && formik.touched.name ? <p>{formik.errors.name}</p> : ''
                                             }
@@ -117,13 +129,13 @@ function Auth1(props) {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        name="email"
+                                        name="email" 
                                         id="email"
                                         placeholder="Your Email"
                                         onChange={formik.handleChange}
                                         value={formik.values.email}
                                         onBlur={formik.handleBlur}
-                                         />
+                                    />
                                     {
                                         formik.errors.email && formik.touched.email ? <p>{formik.errors.email}</p> : ''
                                     }
@@ -132,56 +144,56 @@ function Auth1(props) {
                                 </div>
                                 {
                                     reset === true ?
-                                    null :
-                                    <div className="col-md-7 form-group mt-3 mt-md-0">
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        name="password"
-                                        id="password"
-                                        placeholder="Your Password"
-                                        onChange={formik.handleChange}
-                                        value={formik.values.password}
-                                        onBlur={formik.handleBlur}
-                                    />
-                                    {
-                                        formik.errors.password && formik.touched.password ? <p>{formik.errors.password}</p> : ''
-                                    }
+                                        null :
+                                        <div className="col-md-7 form-group mt-3 mt-md-0">
+                                            <input
+                                                type="password"
+                                                className="form-control"
+                                                name="password"
+                                                id="password"
+                                                placeholder="Your Password"
+                                                onChange={formik.handleChange}
+                                                value={formik.values.password}
+                                                onBlur={formik.handleBlur}
+                                            />
+                                            {
+                                                formik.errors.password && formik.touched.password ? <p>{formik.errors.password}</p> : ''
+                                            }
 
-                                    <div className="validate" />
-                                    </div> 
-                                }    
+                                            <div className="validate" />
+                                        </div>
+                                }
                                 {
-                                     reset ?
-                                         <div className="text-center">
-                                             <button type="submit">Forgot password</button><br></br>
-                                         </div>
-                                         :
-                                         userType === 'Login' ?
-                                             <div className="text-center">
-                                                 <button type="submit">Login</button><br></br>
-                                             </div> :
-                                             <div className="text-center">
-                                                 <button type="submit">signup</button>
-                                             </div>
-                                 }
-                                 {
+                                    reset ?
+                                        <div className="text-center">
+                                            <button type="submit">Forgot password</button><br></br>
+                                        </div>
+                                        :
+                                        userType === 'Login' ?
+                                            <div className="text-center">
+                                                <button type="submit">Login</button><br></br>
+                                            </div> :
+                                            <div className="text-center">
+                                                <button type="submit">signup</button>
+                                            </div>
+                                }
+                                {
                                     reset === true ?
-                                         <div className='text-center mt-5'>
-                                             <span>already have an account ?</span>
-                                             <a onClick={() => setReset(false)}>Login</a>
-                                         </div> :
-                                         userType === 'Login' ?
-                                             <div className='text-center mt-5'>
-                                                 <span>create a New account</span>
-                                                 <a onClick={() => { setUserType('Signup') }} >     signup</a> <br></br>
-                                                 <a className='mt-3' onClick={() => { setReset(true) }}>Forget password</a>
-                                             </div> :
-                                             <div className='text-center mt-5'>
+                                        <div className='text-center mt-5'>
+                                            <span>already have an account ?</span>
+                                            <a onClick={() => setReset(false)}>Login</a>
+                                        </div> :
+                                        userType === 'Login' ?
+                                            <div className='text-center mt-5'>
+                                                <span>create a New account</span>
+                                                <a onClick={() => { setUserType('Signup') }} >     signup</a> <br></br>
+                                                <a className='mt-3' onClick={() => { setReset(true) }}>Forget password</a>
+                                            </div> :
+                                            <div className='text-center mt-5'>
                                                 <span>already have an account ?</span>
-                                                 <a onClick={() => { setUserType('Login') }} >    Login</a>
-                                             </div>
-                                 }
+                                                <a onClick={() => { setUserType('Login') }} >    Login</a>
+                                            </div>
+                                }
                             </div>
                         </Form>
                     </Formik>
