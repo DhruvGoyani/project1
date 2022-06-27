@@ -7,8 +7,8 @@ function Auth1(props) {
     const [reset, setReset] = useState(false)
 
     const handletLogin = (values) => {
-        alert(JSON.stringify(values, null, 2));
-
+        // alert(JSON.stringify(values, null, 2));
+        sessionStorage.setItem("user" , "123465")
     }
 
     const handleSignup = (values) => {
@@ -185,8 +185,8 @@ function Auth1(props) {
                                         </div> :
                                         userType === 'Login' ?
                                             <div className='text-center mt-5'>
-                                                <span>create a New account</span>
-                                                <a onClick={() => { setUserType('Signup') }} >     signup</a> <br></br>
+                                                <span>create a New account                      </span>
+                                                <a onClick={() => { setUserType('Signup') }} >signup</a> <br></br>
                                                 <a className='mt-3' onClick={() => { setReset(true) }}>Forget password</a>
                                             </div> :
                                             <div className='text-center mt-5'>

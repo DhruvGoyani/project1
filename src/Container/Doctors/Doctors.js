@@ -15,7 +15,7 @@ function Doctors(props) {
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src="../assets/img/doctors/doctors-1.jpg" className="img-doctor" alt /></div>
                             <div className="member-info">
-                                <h4>Atha Smith</h4>
+                                <h4>Dr. Ridhi Joshi</h4>
                                 <span>Chief Medical Officer</span>
                                 <p>Duis sagittis rutrum neque, quis tincidunt arcu pretium ac.</p>
                                 <div className="social">
@@ -29,10 +29,11 @@ function Doctors(props) {
                     </div>
                     <div className="col-lg-6 mt-4 mt-lg-0">
                         <div className="member d-flex align-items-start">
-                            <div className="pic"><img src="../assets/img/doctors/doctors-2.jpg" className="img-doctor" alt /></div>
+                            <div className="pic"><img src="../assets/img/harrdy-5.jpg" className="img-doctor" alt /></div>
                             <div className="member-info">
-                                <h4>John White</h4>
+                                <h4>Dr. Harrdy Kuk's</h4>
                                 <span>Anesthesiologist</span>
+                                {/* <span>Anesthesiologist</span> */}
                                 <p>Aenean ac turpis ante. Mauris velit sapien.</p>
                                 <div className="social">
                                     <a href><i className="ri-twitter-fill" /></a>
@@ -47,7 +48,7 @@ function Doctors(props) {
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src="../assets/img/doctors/doctors-3.jpg" className="img-doctor" alt /></div>
                             <div className="member-info">
-                                <h4>Umika Loha</h4>
+                                <h4>Dr. Ayush Sutariya</h4>
                                 <span>Cardiology</span>
                                 <p>Curabitur luctus eleifend odio. Phasellus placerat mi.</p>
                                 <div className="social">
@@ -63,7 +64,7 @@ function Doctors(props) {
                         <div className="member d-flex align-items-start">
                             <div className="pic"><img src="../assets/img/doctors/doctors-4.jpg" className="img-doctor" alt /></div>
                             <div className="member-info">
-                                <h4>Daimy Smith</h4>
+                                <h4>Dr. Dhruv Goyani</h4>
                                 <span>Neurosurgeon</span>
                                 <p>Morbi vulputate, tortor nec pellentesque molestie, eros nisi ornare purus.</p>
                                 <div className="social">

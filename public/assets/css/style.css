@@ -217,6 +217,7 @@ h6 {
   transition: 0.3s;
   font-size: 14px;
   display: inline-block;
+  /* margin-bottom: 30px; */
 }
 
 .appointment-btn:hover {

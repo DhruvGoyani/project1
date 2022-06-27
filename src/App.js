@@ -14,7 +14,9 @@ import Appointment from './Container/Appointment/Appointment';
 import Counter from './Container/Counter/Counter';
 import Medicines from './Container/Medicines/Medicines';
 import Auth1 from './Container/Auth/Auth1';
-import Form from './Container/Auth/Form';
+import PublicRoute from './Route/PublicRoute';
+import PrivateRoute from './Route/PrivateRoute';
+import ListAppointment from './Container/Appointment/ListAppointment';
 
 
 function App() {
@@ -22,21 +24,18 @@ function App() {
     <>
     <Header />
     <Switch>
-      {/* <Route exact path={"/"} component={Home} />
-      <Route exact path={"/Department"} component={Department} /> */}
-      <Route exact path={"/"} component={Home}/>
-      <Route exact path={"/department"} component={Department} />
-      <Route exact path={"/doctors"} component={Doctors} />
-      <Route exact path={"/about"} component={About} />
-      <Route exact path={"/contact"} component={Contact} />
-      <Route exact path={"/appointment"} component={Appointment} />
-      {/* <Route exact path={"/auth"} component={Auth} /> */}
-      <Route exact path={"/medicines"} component={Medicines} />
-      <Route exact path={"/auth1"} component={Auth1} />
-      <Route exact path={"/form"} component={Form} />
+      <PublicRoute exact path={"/"} component={Home}/>
+      <PublicRoute exact path={"/department"} component={Department} />
+      <PublicRoute exact path={"/doctors"} component={Doctors} /> 
+      <PublicRoute exact path={"/about"} component={About} />
+      <PublicRoute exact path={"/contact"} component={Contact} />
+      <PrivateRoute exact path={"/appointment"} component={Appointment} />
+      <PrivateRoute exact path={"/Listappointment"} component={ListAppointment} />
+      <PrivateRoute  exact path={"/medicines"} component={Medicines} />
+      <PublicRoute restricted={true} exact path={"/auth1"} component={Auth1} />
      </Switch>
     <Footer />
-    <Counter />                
+    {/* <Counter />                 */}
     </>
   );  
 }
