@@ -17,11 +17,13 @@ import Auth1 from './Container/Auth/Auth1';
 import PublicRoute from './Route/PublicRoute';
 import PrivateRoute from './Route/PrivateRoute';
 import ListAppointment from './Container/Appointment/ListAppointment';
-
+import { Provider} from "react-redux";
+import { store } from './Saga/Store/Store';
 
 function App() {
   return (
     <>
+    <Provider Store={store}>
     <Header />
     <Switch>
       <PublicRoute exact path={"/"} component={Home}/>
@@ -35,6 +37,7 @@ function App() {
       <PublicRoute restricted={true} exact path={"/auth1"} component={Auth1} />
      </Switch>
     <Footer />
+    </Provider>
     {/* <Counter />                 */}
     </>
   );  

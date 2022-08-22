@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import { Form, Formik, useFormik } from "formik";
+import { signupAction } from "../../Saga/Action/Action";
+import { useDispatch } from "react-redux";
 
 function Auth1(props) {
   const [userType, setUserType] = useState("Login");
   const [reset, setReset] = useState(false);
+  const dispatch = useDispatch;
 
   const handletLogin = (values) => {
     // alert(JSON.stringify(values, null, 2));
@@ -26,7 +29,7 @@ function Auth1(props) {
     //   localStorage.setItem("users", JSON.stringify(data));
     // }
 
-    dispatch(sighupAction(values));
+    dispatch(signupAction(values));
   };
   const handlepassword = (values) => {
     alert(JSON.stringify(values.email));
