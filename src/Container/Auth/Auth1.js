@@ -52,6 +52,8 @@ function Auth1(props) {
   let schema, initVal;
 
   console.log(reset);
+
+
   if (userType === "Login" && !reset) {
     schema = yup.object().shape(login_set);
     initVal = {

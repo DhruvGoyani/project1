@@ -18,12 +18,12 @@ import PublicRoute from './Route/PublicRoute';
 import PrivateRoute from './Route/PrivateRoute';
 import ListAppointment from './Container/Appointment/ListAppointment';
 import { Provider} from "react-redux";
-import { store } from './Saga/Store/Store';
+import { store } from './Saga/Store';
 
 function App() {
   return (
     <>
-    <Provider Store={store}>
+    <Provider store={store}>
     <Header />
     <Switch>
       <PublicRoute exact path={"/"} component={Home}/>
