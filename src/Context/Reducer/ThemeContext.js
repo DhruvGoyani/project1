@@ -1,6 +1,6 @@
 import { createContext, useReducer } from "react";
 import { TOGGLE_THEAME } from "../Actiontype";
-import { TheameReducer } from "./Theme_reducer";
+import {TheameReducer } from "../Reducer/Theme_reducer";
 
 const ThemeContext = createContext();
 
@@ -23,4 +23,4 @@ export const TheameProvider = ({ children }) => {
   );
 };
 
-export default ThemeContext;
+export default ThemeContext;

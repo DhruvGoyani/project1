@@ -1813,3 +1813,13 @@ section {
   position: relative;
   color: #2c4964;
 }
+
+.light {
+  background-color: #fff !important; 
+  color: #000 !important;
+}
+
+.dark {
+  background-color: #000 !important; 
+  color: #fff !important;
+}

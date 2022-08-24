@@ -1,6 +1,5 @@
 import { TOGGLE_THEAME } from "../Actiontype"
 
-
 export const TheameReducer = (state, action)=>{
     switch(action.type){
         case TOGGLE_THEAME :
@@ -9,6 +8,6 @@ export const TheameReducer = (state, action)=>{
                 theme : action.payload
             }
             default :
-            return state
-    }
+            return state
+    }
 }

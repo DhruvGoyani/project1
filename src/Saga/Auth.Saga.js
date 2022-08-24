@@ -1,22 +1,24 @@
-import { all, call, put, takeEvery, } from 'redux-saga/effects'
-import { signupApi } from '../Common/Auth.api';
-import * as ActionType from './ActionTypes'
+import { all, call, put, takeEvery } from "redux-saga/effects";
+import * as ActionType from "./ActionTypes";
+import { signupApi } from "../Common/Auth.api";
 
 function* signup(action) {
-   try {
-      const user = yield call(signupApi, action.payload);
-      yield put({type: "USER_FETCH_SUCCEEDED", user: user});
-   } catch (e) {
-      yield put({type: "USER_FETCH_FAILED", message: e.message});
-   }
+  try {
+    console.log("ssssss");
+    const user = yield call(signupApi, action.payload);
+    console.log(user);
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 function* watchSignup() {
+  console.log("wwwww");
   yield takeEvery(ActionType.SIGN_UP, signup);
 }
 
-export function* authsaga(){
-    yield all([
-        watchSignup()
-        ])
+export function* authsaga() {
+   yield all([
+      watchSignup()
+   ]);
 }

@@ -8,7 +8,8 @@ const initVal = {
 }
 
 
-export const authReducer = (state = initVal , action) => {
+export const authReducer = (state=initVal , action) => {
+    // console.log(action.type, action.payload);
     switch (action.type) {
         default :
             return state

@@ -3,4 +3,6 @@ import { authReducer } from "./Auth_Reducer";
 
 
 
-export const rootReducer = combineReducers(authReducer);
+export const rootReducer = combineReducers({ 
+    auth: authReducer
+});

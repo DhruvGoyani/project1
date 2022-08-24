@@ -4,12 +4,13 @@ import ThemeContext from '../../Context/Reducer/ThemeContext';
 
 function Header(props) {
 
-    // const theme_ = useContext(ThemeContext);
+    const theme = useContext(ThemeContext);
 
+    // console.log(theme);
 
     return (
         <div className="main-header">
-            <div id="topbar" className="d-flex align-items-center fixed-top " >
+                <div id="topbar" className={`d-flex align-items-center fixed-top ${theme.theme}`}>
                 <div className="container d-flex justify-content-between">
                     <div className="contact-info d-flex align-items-center">
                         <i className="bi bi-envelope" /> <a href="mailto:contact@example.com">cityhospital@example.com</a>
@@ -21,7 +22,7 @@ function Header(props) {
                         <a href="#" className="instagram"><i className="bi bi-instagram" /></a>
                         <a href="#" className="linkedin"><i className="bi bi-linkedin" /></a>
                     </div>
-                    {/* <button onClick={()=>theme_.toggle_theme(theme_.theme)}>Theme Change</button> */}
+                    <button onClick={()=>theme.toggle_theme(theme.theme)}>Theme Change</button>
                 </div>
             </div>
             <header id="header" className="fixed-top">

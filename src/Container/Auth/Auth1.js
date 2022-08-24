@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 function Auth1(props) {
   const [userType, setUserType] = useState("Login");
   const [reset, setReset] = useState(false);
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const handletLogin = (values) => {
     // alert(JSON.stringify(values, null, 2));
@@ -29,6 +29,7 @@ function Auth1(props) {
     //   localStorage.setItem("users", JSON.stringify(data));
     // }
 
+    console.log("jjjj");
     dispatch(signupAction(values));
   };
   const handlepassword = (values) => {
@@ -90,7 +91,7 @@ function Auth1(props) {
     },
   });
 
-  console.log(formik.errors);
+  console.log(formik.errors);   
 
   return (
     <section id="appointment" className="appointment d-flex">
