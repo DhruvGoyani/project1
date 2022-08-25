@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import { Form, Formik, useFormik } from "formik";
-import { signupAction } from "../../Saga/Action/Action";
+import { signinAction, signupAction } from "../../Saga/Action/Action";
 import { useDispatch } from "react-redux";
 
 function Auth1(props) {
@@ -11,7 +11,10 @@ function Auth1(props) {
 
   const handletLogin = (values) => {
     // alert(JSON.stringify(values, null, 2));
-    sessionStorage.setItem("user", "123465");
+    // sessionStorage.setItem("user", "123465");
+
+    dispatch (signinAction(values))
+
   };
 
   const handleSignup = (values) => {
@@ -29,7 +32,6 @@ function Auth1(props) {
     //   localStorage.setItem("users", JSON.stringify(data));
     // }
 
-    console.log("jjjj");
     dispatch(signupAction(values));
   };
   const handlepassword = (values) => {
@@ -52,7 +54,7 @@ function Auth1(props) {
 
   let schema, initVal;
 
-  console.log(reset);
+  // console.log(reset);
 
 
   if (userType === "Login" && !reset) {
@@ -91,7 +93,7 @@ function Auth1(props) {
     },
   });
 
-  console.log(formik.errors);   
+  // console.log(formik.errors);   
 
   return (
     <section id="appointment" className="appointment d-flex">
