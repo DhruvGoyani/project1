@@ -64,7 +64,7 @@ export const signinApi = (values) => {
      if(user.emailVerified){
       resolve({ payload: "Login Successfully." });
      }else{
-        reject({ payload: "first already verified." });
+        reject({ payload: "Please first verified Email." });
       }
 
      }

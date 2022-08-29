@@ -20,10 +20,12 @@ import ListAppointment from "./Container/Appointment/ListAppointment";
 import { Provider } from "react-redux";
 import { store } from "./Saga/Store";
 import { TheameProvider } from "./Context/Reducer/ThemeContext";
+import { SnackbarProvider } from 'notistack';
 
 function App() {
   return (
     <>
+      <SnackbarProvider  maxSnack={3} >
       <Provider store={store}>
         <TheameProvider>
           <Header />
@@ -50,6 +52,7 @@ function App() {
           <Footer />
         </TheameProvider>
       </Provider>
+      </SnackbarProvider>
       {/* <Counter />                 */}
     </>
   );
