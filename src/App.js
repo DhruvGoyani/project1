@@ -18,15 +18,17 @@ import PublicRoute from "./Route/PublicRoute";
 import PrivateRoute from "./Route/PrivateRoute";
 import ListAppointment from "./Container/Appointment/ListAppointment";
 import { Provider } from "react-redux";
-import { store } from "./Saga/Store";
+import { persistor, store } from "./Saga/Store";
 import { TheameProvider } from "./Context/Reducer/ThemeContext";
 import { SnackbarProvider } from 'notistack';
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   return (
     <>
       <SnackbarProvider  maxSnack={3} >
       <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <TheameProvider>
           <Header />
           <Switch>
@@ -51,6 +53,7 @@ function App() {
           </Switch>
           <Footer />
         </TheameProvider>
+        </PersistGate>
       </Provider>
       </SnackbarProvider>
       {/* <Counter />                 */}

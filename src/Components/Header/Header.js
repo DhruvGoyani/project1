@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../../Context/Reducer/ThemeContext';
 import Alert from '../Alert/Alert';
@@ -6,6 +7,8 @@ import Alert from '../Alert/Alert';
 function Header(props) {
 
     const theme = useContext(ThemeContext);
+
+    const user = useSelector(state => state.auth);
 
     // console.log(theme);
 
@@ -59,10 +62,19 @@ function Header(props) {
                         <i className="bi bi-list mobile-nav-toggle" />
                     </nav>
                     <NavLink href="./pages/appointment.html" to={"/appointment"} className="appointment-btn scrollto"><span className="d-none d-md-inline">Make an</span>
-                        Appointment</NavLink>
-                    <NavLink to={"/auth1"} href="#" className="appointment-btn scrollto">
-                        <span className="d-none d-md-inline">Login/ Signup</span>
-                    </NavLink>
+                        Appointment
+                        </NavLink>
+                        {
+                            user.user === null ?
+
+                            <NavLink to={"/auth1"} href="#" className="appointment-btn scrollto">
+                                <span className="d-none d-md-inline">Login/ Signup</span>
+                            </NavLink>
+                             : 
+                            <NavLink to={"/auth1"} href="#" className="appointment-btn scrollto">
+                                <span className="d-none d-md-inline">Logout</span>
+                            </NavLink>
+                        }
                 </div>
             </header>
         </div>
