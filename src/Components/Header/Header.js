@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ThemeContext from '../../Context/Reducer/ThemeContext';
+import { logOutAction } from '../../Saga/Action/Action';
 import Alert from '../Alert/Alert';
 
 function Header(props) {
@@ -9,6 +10,12 @@ function Header(props) {
     const theme = useContext(ThemeContext);
 
     const user = useSelector(state => state.auth);
+
+    const dispatch = useDispatch()
+
+    const logout = () => {
+        dispatch(logOutAction())
+    }
 
     // console.log(theme);
 
@@ -71,7 +78,7 @@ function Header(props) {
                                 <span className="d-none d-md-inline">Login/ Signup</span>
                             </NavLink>
                              : 
-                            <NavLink to={"/auth1"} href="#" className="appointment-btn scrollto">
+                            <NavLink to={"/auth1"} href="#" className="appointment-btn scrollto" onClick={() => logout()}>
                                 <span className="d-none d-md-inline">Logout</span>
                             </NavLink>
                         }

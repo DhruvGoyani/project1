@@ -13,8 +13,7 @@ function Auth1(props) {
     // alert(JSON.stringify(values, null, 2));
     // sessionStorage.setItem("user", "123465");
 
-    dispatch (signinAction(values))
-
+    dispatch(signinAction(values));
   };
 
   const handleSignup = (values) => {
@@ -56,7 +55,6 @@ function Auth1(props) {
 
   // console.log(reset);
 
-
   if (userType === "Login" && !reset) {
     schema = yup.object().shape(login_set);
     initVal = {
@@ -93,7 +91,7 @@ function Auth1(props) {
     },
   });
 
-  // console.log(formik.errors);   
+  // console.log(formik.errors);
 
   return (
     <section id="appointment" className="appointment d-flex">
@@ -173,7 +171,8 @@ function Auth1(props) {
                     <div className="validate" />
                   </div>
                 )}
-                {reset ? (
+                {
+                reset ? (
                   <div className="text-center">
                     <button type="submit">Forgot password</button>
                     <br></br>
@@ -188,13 +187,14 @@ function Auth1(props) {
                     <button type="submit">signup</button>
                   </div>
                 )}
-                {reset === true ? (
+                {
+                  reset === true ? (
                   <div className="text-center mt-5">
                     <span>already have an account ?</span>
                     <a onClick={() => setReset(false)}>Login</a>
                   </div>
-                ) : userType === "Login" ? (
-                  <div className="text-center mt-5">
+                  ) : userType === "Login" ? (
+                  <div className="text-center mt-3 mb-3">
                     <span>create a New account </span>
                     <a
                       onClick={() => {
@@ -214,7 +214,7 @@ function Auth1(props) {
                     </a>
                   </div>
                 ) : (
-                  <div className="text-center mt-5">
+                  <div className="text-center mt-3">
                     <span>already have an account ?</span>
                     <a
                       onClick={() => {
@@ -226,6 +226,13 @@ function Auth1(props) {
                     </a>
                   </div>
                 )}
+                {
+                  userType === "Login" ? 
+                  <div className="text-center">
+                  <button type="submit">SignUp With Goggle</button>
+                </div> : null
+                }
+                
               </div>
             </Form>
           </Formik>

@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   sendEmailVerification,
   onAuthStateChanged,
+  signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../FireBase";
@@ -82,3 +83,16 @@ export const signinApi = (values) => {
     });
   });
 };
+
+
+export const logOutApi = () => {
+  return new Promise((resolve, reject) => {
+    signOut(auth)
+    .then(() => {
+      resolve({payload : "logout successfully" });
+    }) 
+    .catch ((error) => {
+      reject({payload : error.Code});
+    })
+  })
+}
