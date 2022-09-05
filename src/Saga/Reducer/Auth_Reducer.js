@@ -25,6 +25,13 @@ export const authReducer = (state=initVal , action) => {
             user : null,
             error : ''
         }
+        case ActionType.FORGATED_PASSWORD: 
+        return {
+            ...state,
+            isloading: false,
+            user : action.payload,
+            error : ''
+        }
             default :
             return state
     }

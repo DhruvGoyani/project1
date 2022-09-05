@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import { Form, Formik, useFormik } from "formik";
-import { signinAction, signupAction } from "../../Saga/Action/Action";
+import { ForgatePasswordAction, GoogleSigninAction, signinAction, signupAction } from "../../Saga/Action/Action";
 import { useDispatch } from "react-redux";
+import { GoogleAuthProvider } from "firebase/auth";
 
 function Auth1(props) {
   const [userType, setUserType] = useState("Login");
@@ -16,8 +17,12 @@ function Auth1(props) {
     dispatch(signinAction(values));
   };
 
+  const handleForgetPassword = (values) => {
+      dispatch(ForgatePasswordAction(values))
+  }
+
   const handleSignup = (values) => {
-    // alert(JSON.stringify(values, null, 2));
+    // alert(JSON.stringify(    ``  values, null, 2));
 
     // let data = JSON.parse(localStorage.getItem("users"));
     // // data.push(values)
@@ -33,8 +38,15 @@ function Auth1(props) {
 
     dispatch(signupAction(values));
   };
+
+  const handleGoogleSignin = () => {
+    dispatch(GoogleSigninAction())
+  }
+
   const handlepassword = (values) => {
-    alert(JSON.stringify(values.email));
+    console.log(values)
+    dispatch(ForgatePasswordAction(values))
+    // alert(JSON.stringify(values.email));
   };
 
   let login_set = {
@@ -69,7 +81,7 @@ function Auth1(props) {
       password: "",
     };
   } else if (reset) {
-    console.log(reset);
+    // console.log(reset);
     schema = yup.object().shape(password_set);
     initVal = {
       email: "",
@@ -80,11 +92,13 @@ function Auth1(props) {
     initialValues: initVal,
     validationSchema: schema,
     onSubmit: (values, { resetForm }) => {
+      console.log(values);
       if (userType === "Login" && !reset) {
         handletLogin(values);
       } else if (userType === "Signup" && !reset) {
         handleSignup(values);
       } else if (reset) {
+        console.log(values);
         handlepassword(values);
       }
       resetForm();
@@ -173,7 +187,7 @@ function Auth1(props) {
                 )}
                 {
                 reset ? (
-                  <div className="text-center">
+                  <div className="text-center" >
                     <button type="submit">Forgot password</button>
                     <br></br>
                   </div>
@@ -207,7 +221,7 @@ function Auth1(props) {
                     <a
                       className="mt-3"
                       onClick={() => {
-                        setReset(true);
+                        setReset(true)
                       }}
                     >
                       Forget password
@@ -229,7 +243,7 @@ function Auth1(props) {
                 {
                   userType === "Login" ? 
                   <div className="text-center">
-                  <button type="submit">SignUp With Goggle</button>
+                  <button type="submit" onClick={() => handleGoogleSignin()}>SignUp With Goggle</button>
                 </div> : null
                 }
                 
